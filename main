@@ -1,0 +1,38 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package hoadon;
+
+/**
+ *
+ * @author 84974
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        // Tạo sản phẩm
+        Product product1 = new Product("P001", "Product 1", 10.0);
+        Product product2 = new Product("P002", "Product 2", 20.0);
+        
+        // Tạo hóa đơn
+        Order order = new Order(1, LocalDate.now());
+        
+        // Thêm sản phẩm vào hóa đơn
+        order.addLineItem(product1, 5);
+        order.addLineItem(product2, 3);
+        
+        // Tính tổng tiền hóa đơn
+        double totalCharge = order.calcTotalCharge();
+        
+        // In thông tin hóa đơn
+        System.out.println("Order ID: " + order.getOrderID());
+        System.out.println("Order Date: " + order.getOrderDate());
+        System.out.println("Total charge: " + totalCharge);
+        System.out.println("Line items:");
+        
+        for (OrderDetail lineItem : order.getLineItems()) {
+            System.out.println(lineItem.getProduct().getDescription() + " - " + lineItem.getQuantity() + " - " + lineItem.calcTotalPrice());
+        }
+    }}
+    
