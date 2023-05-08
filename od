@@ -1,60 +1,47 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package hoadon;
+package .vscode.src;s
 
-/**
- *
- * @author 84974
- */
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Order {
-    private final int orderID;
-    private LocalDate orderDate;
-    private List<OrderDetail> lineItems;
-    private int count;
-    public Order(int orderID, LocalDate orderDate) {
-        this.orderID = orderID;
-        this.orderDate = orderDate;
-        this.lineItems = new ArrayList<>();
-        this.count = 20;
-    }
-    
-    public List<OrderDetail> getLineItems() {
-        return lineItems;
-    }
-    
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-    
-    public int getOrderID() {
-        return orderID;
-    }
-    
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
-    }
-    
-    public void addLineItem(Product product, int quantity) {
-        lineItems.add(new OrderDetail(product, quantity));
-    }
-    
-    public double calcTotalCharge() {
-        double totalCharge = 0;
-        for (OrderDetail item : lineItems) {
-            totalCharge += item.calcTotalPrice();
-        }
-        return totalCharge;
-    }
-    
-    @Override
-    public String toString() {
-        return "Order ID: " + orderID + ", Order Date: " + orderDate + ", Total Charge: " + calcTotalCharge();
-    }
+	private int orderID;
+	private Date orderDate;
+	private OrderDetail lineitems;
+	private Product product;
+	public Order(int orderID, Date orderDate) {
+		super();
+		this.orderID = orderID;
+		this.orderDate = orderDate;
+	}
 
+    Order(int i, LocalDate now, Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+	public Date getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+	public int getOrderID() {
+		return orderID;
+	}
+	
+	public void addLineItem(Product product,int soluong)
+	{
+		
+	}
+	
+	public double calcTotalCharge(){
+		return product.getPrice()*lineitems.getQuantity();
+	}
+	
+	@Override
+	public String toString(){
+		return String.format("%-5d %-10s",orderID,orderDate);
+	}
+
+    Iterable<OrderDetail> getLineItems() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
